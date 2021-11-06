@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Запись пациента</title>
+</head>
+<body>
+
+<div th:data="${#dates.createNow()}">Дата - </div>
+
+<!--/*@thymesVar id="patient" type="templates"*/-->
+<form th:method="POST" th:action="@{/patients}" th:object="${patient}">
+    <label for="name" th:placeholder="Ваше имя*">Ваше имя*</label>
+
+    <input id="name" th:field="*{name}" type="text"/>
+    <div style="color: crimson" th:if="${#fields.hasErrors('name')}"
+         th:errors="*{name}">Ошибка имени</div>
+    <br/>
+    <label for="email" th:placeholder="Ваш e-mail*">Ваш e-mail*</label>
+
+    <input type="text" th:field="*{email}" id="email">
+    <div style="color: crimson" th:if="${#fields.hasErrors('email')}"
+         th:errors="*{email}">Ошибка email</div>
+    <br/>
+    <label for="phoneNumber" th:placeholder="Ваш номер телефона*">Ваш номер телефона*</label>
+
+    <input type="text" th:field="*{phoneNumber}" id="phoneNumber">
+    <div style="color: crimson" th:if="${#fields.hasErrors('phoneNumber')}"
+         th:errors="*{phoneNumber}">Ошибка номера телефона</div>
+    <br/>
+    <label for="comments" th:placeholder="Комментарий">Комментарий</label>
+
+    <input type="text" th:content="*{comments}" id="comments">
+    <br/>
+    <button type="submit">Записаться</button>
+
+<!--    <input type="button" value="Записаться" onclick="window.location='simple_message.html'">-->
+</form>
+
+</body>
+</html>

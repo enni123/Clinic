@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Запись пациента</title>
+</head>
+<body>
+<h1>Регистрация</h1>
+
+<div>
+<form th:method="POST" th:action="@{/patients/add}" th:object="${patient}">
+    <input type="hidden" name="id" value="id" th:field="*{id}"/>
+
+    <label for="name"></label>
+    <input type="text" th:field="*{name}" id="name" style="margin-top: 10px"
+           th:placeholder="Ваше_имя"/>
+    <div style="color: crimson" th:if="${#fields.hasErrors('name')}"
+         th:errors="*{name}">Ошибка имени</div>
+    <br/>
+
+    <label for="email"></label>
+    <input type="email" th:field="*{email}" id="email"
+           style="margin-top: 10px" th:placeholder="Ваш_email"/>
+    <div style="color: crimson" th:if="${#fields.hasErrors('email')}"
+         th:errors="*{email}">Ошибка email</div>
+    <br/>
+
+    <label for="phoneNumber"></label>
+    <input type="tel" th:field="*{phoneNumber}" id="phoneNumber"
+           style="margin-top: 10px" th:placeholder="Ваш_номер_телефона"/>
+    <div style="color: crimson" th:if="${#fields.hasErrors('phoneNumber')}"
+         th:errors="*{phoneNumber}">Ошибка номера телефона</div>
+    <br/>
+
+    <div><label for="comments"></label>
+        <textarea rows="10" cols="30" style="margin-top: 15px"
+                  th:field="*{comments}" id="comments"
+                 th:placeholder="Комментарий"
+                 th:inline="text"></textarea></div>
+<!--    <span th:text="*{date}"></span>-->
+<!--    <p>Creation date: <span th:text="${#dates.createNow()}"></span></p>-->
+<!--    <input type="hidden" id="date" th:field="*{date}"/>-->
+<br/>
+    <button type="submit">Записаться</button>
+</form>
+</div>
+</body>
+</html>

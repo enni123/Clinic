@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Обновление информации о пациенте</title>
+</head>
+<body>
+
+<form th:method="PUT" th:action="@{/patients}" th:object="${patient}">
+    <label for="name">Ваше имя* </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <div style="color: crimson" th:if="${#fields.hasErrors('name')}"
+         th:errors="*{name}">Ошибка имени</div>
+    <br/>
+    <label for="email">Ваш e-mail* </label>
+    <input type="text" th:field="*{email}" id="email">
+    <div style="color: crimson" th:if="${#fields.hasErrors('email')}"
+         th:errors="*{email}">Ошибка email</div>
+    <br/>
+    <label for="phoneNumber">Ваш номер телефона* </label>
+    <input type="text" th:field="*{phoneNumber}" id="phoneNumber">
+    <div style="color: crimson" th:if="${#fields.hasErrors('phoneNumber')}"
+         th:errors="*{phoneNumber}">Ошибка номера телефона</div>
+    <br/>
+    <label for="comments">Комментарий </label>
+    <input type="text" th:content="*{comments}" id="comments">
+    <br/>
+    <input type="button" value="Записаться">
+</form>
+</body>
+</html>
