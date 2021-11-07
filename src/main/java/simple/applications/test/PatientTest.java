@@ -10,7 +10,7 @@ import simple.applications.repository.PatientRepository;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@RunWith(SpringRunner.class)
+git @RunWith(SpringRunner.class)
 @SpringBootTest
 public class PatientTest {
     @Autowired
