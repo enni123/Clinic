@@ -26,6 +26,7 @@ public class PatientTest {
         Patient name = repository.getPatientByName("Денис");
         Assertions.assertThat(name).hasFieldOrProperty("name");
         Assertions.assertThat(name.getEmail()).isEqualTo("denis33@ukr.net");
+
     }
     @Test
     public void findPatient(){
