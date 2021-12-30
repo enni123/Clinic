@@ -1,4 +1,0 @@
-entities\Patient.class
-applications\ApplicationPatient.class
-repositories\PatientRepository.class
-controllers\PatientController.class
